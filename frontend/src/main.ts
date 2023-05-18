@@ -1,4 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import store from './global/store'
 
-createApp(App).mount('#app')
+const fend = createApp(App);
+fend.use(store);
+fend.config.globalProperties.$store = store
+fend.mount('#app');
