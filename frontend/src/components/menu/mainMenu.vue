@@ -1,7 +1,10 @@
 <template>
 	<div class="d-flex justify-content-end">
 		<div class="main-menu menus">
-			<button class="btn btn-sm btn-primary deneme"></button>
+			<button @click="swtch()" class="btn btn-sm btn-primary deneme"></button>
+			<div>
+				<!-- There is filled something -->
+			</div>
 		</div>
 	</div>
 </template>
@@ -22,4 +25,18 @@
 </style>
 
 <script setup lang="ts">
+import { computed } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
+
+const playstat = computed(store.getters.getPlaystat)
+//store.getters.getPlaystat;
+
+const swtch = () => {
+	if (playstat)
+		store.dispatch('gameOn')
+	setTimeout(() => {
+		store.dispatch('gameoff')
+	}, 1000);
+}
 </script>

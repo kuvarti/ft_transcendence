@@ -14,12 +14,19 @@
 	display: flex;
 	height: 100%;
 	width: 100%;
-	border: 1px solid white;
 }
 </style>
 
 <script setup lang="ts">
-import userMenu from "./menu/userSettings.vue"
 import mainMenu from "./menu/mainMenu.vue"
+import userMenu from "./menu/userSettings.vue"
 import userList from "./menu/userList.vue"
+import { useStore } from "vuex"
+import { onUnmounted } from "vue"
+
+const store = useStore()
+
+onUnmounted(() => {
+	store.commit('_setloginstat', true)
+})
 </script>

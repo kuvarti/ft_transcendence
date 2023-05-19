@@ -1,0 +1,15 @@
+
+.sidemenu{
+	width: 5%;
+	margin-top: 18%;
+	height: 70%;
+	background-color: #B1A1E3;
+	transition: width 0.2s;
+}
+.closedMenu:hover{
+	width: 7% !important;
+}
+.openedMenu{
+	transition: width 1s;
+	width: 70% !important;
+}
