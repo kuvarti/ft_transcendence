@@ -1,6 +1,9 @@
 <template>
 	<div class="d-flex justify-content-end">
-		<div @click="shouldExpand = !shouldExpand" class="sidemenu leftmenu" :class="shouldExpandclass">
+		<div class="sidemenu leftmenu leftborder" :class="shouldExpandclass">
+			<div v-if="!shouldDisplay" @click="switchExpand" class="h-100 w-100 d-flex align-items-center justify-content-center">
+				<i class="fa-solid fa-user"></i>
+			</div>
 		</div>
 	</div>
 </template>
@@ -15,7 +18,9 @@
 </style>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { useStore } from "vuex"
+import { computed, ref, watch } from "vue";
+const store = useStore();
 const shouldExpand = ref(false)
 const shouldExpandclass = computed(() => {
 	if (shouldExpand.value)
@@ -23,4 +28,19 @@ const shouldExpandclass = computed(() => {
 	else
 		return 'closedMenu'
 })
+const shouldDisplay = ref(false)
+watch(shouldExpand, () => {
+	if (shouldExpand.value) {
+		setTimeout(() => {
+			shouldDisplay.value = true
+		}, 500)
+	} else {
+		setTimeout(() => {
+			shouldDisplay.value = false
+		}, 100)
+	}
+})
+const switchExpand = () => {
+	shouldExpand.value = !shouldExpand.value
+}
 </script>

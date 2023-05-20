@@ -3,10 +3,10 @@ import { createStore } from 'vuex'
 class	user{
 	public isLogin: boolean;
 	public username: string;
+	public profile: string;
 	public rank: number;
 	public status: string;
 }
-
 
 const store = createStore({
 	state: {
@@ -31,6 +31,7 @@ const store = createStore({
 			state.login.username = value.username
 			state.login.rank = value.rank
 			state.login.status = value.status
+			state.login.profile = value.profile
 		},
 		_setloginstat(state: any, value :boolean) {
 			state.login.isLogin = value

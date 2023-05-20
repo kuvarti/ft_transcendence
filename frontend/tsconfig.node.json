@@ -5,6 +5,10 @@
 	"strictPropertyInitialization": false,
     "composite": true,
     "module": "ESNext",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "types": ["node"]
   }
 }

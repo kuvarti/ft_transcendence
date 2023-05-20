@@ -15,7 +15,6 @@
 </style>
 
 <script setup lang="ts">
-import { computed, watch, ref } from 'vue'
 import { useStore } from 'vuex'
 import mmenu from "./components/midMenu.vue"
 const store = useStore();

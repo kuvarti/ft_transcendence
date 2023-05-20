@@ -28,5 +28,6 @@ const store = useStore()
 
 onUnmounted(() => {
 	store.commit('_setloginstat', true)
+	store.commit('_setLogin', { profile: 'https://html.com/wp-content/uploads/flamingo.jpg'})
 })
 </script>

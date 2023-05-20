@@ -17,7 +17,7 @@
 							</div>
 						</div>
 						<div class="col-4 m-0 p-0 h-100 d-flex align-items-center justify-content-center">
-							<img src="https://html.com/wp-content/uploads/flamingo.jpg" alt="example" class="img-thumbnail p-0 profileimage">
+							<img :src="store.getters.getUser.profile" alt="example" class="img-thumbnail p-0 profileimage">
 						</div>
 					</div>
 				</div>
