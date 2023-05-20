@@ -15,6 +15,7 @@
 </style>
 
 <script setup lang="ts">
+// @ts-ignore
 import { useStore } from 'vuex'
 import mmenu from "./components/midMenu.vue"
 const store = useStore();

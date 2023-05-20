@@ -13,6 +13,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-ignore
 import {useStore} from 'vuex'
 const store = useStore()
 </script>

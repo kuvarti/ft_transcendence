@@ -33,6 +33,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
+// @ts-ignore
 import { useStore } from "vuex";
 import friendlist from "./userlistComponents/friendList.vue"
 import profilebar from "./userlistComponents/profileBar.vue"

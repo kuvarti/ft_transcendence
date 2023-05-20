@@ -18,6 +18,7 @@
 </style>
 
 <script setup lang="ts">
+// @ts-ignore
 import { useStore } from "vuex"
 import { computed, ref, watch } from "vue";
 const store = useStore();

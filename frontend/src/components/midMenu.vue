@@ -21,6 +21,7 @@
 import mainMenu from "./menu/mainMenu.vue"
 import userMenu from "./menu/userSettings.vue"
 import userList from "./menu/userList.vue"
+// @ts-ignore
 import { useStore } from "vuex"
 import { onUnmounted } from "vue"
 

@@ -1,3 +1,4 @@
+// @ts-ignore
 import { createStore } from 'vuex'
 
 class	user{

@@ -42,6 +42,7 @@
 </style>
 
 <script setup lang="ts">
+// @ts-ignore
 import { useStore } from 'vuex'
 const store = useStore()
 const props = defineProps(['shouldExpand'])
