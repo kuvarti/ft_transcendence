@@ -1,8 +1,5 @@
 <template>
 	<div class="row h-100 p-0 m-0">
-		<div class="col-1 p-0 m-0 h-100 d-flex align-items-center justify-content-center" @click="shouldExpand">
-			<i class="fa-solid fa-chevron-up fa-rotate-270 fa-xl"></i>
-		</div>
 		<div class="col-11 m-0 p-0">
 			<div v-if="store.getters.getUser.isLogin" class="h-100 w-100 d-flex align-items-center justify-content-center">
 				<div class="profilecard d-flex">
@@ -12,7 +9,7 @@
 								<h3 class="p-0 m-0">{{ store.getters.getUser.username || "Some UserName" }}</h3>
 								<small style="color:green">Online</small>
 							</div>
-							<div class="float-bottom">
+							<div>
 								<h4> Rank : {{ store.getters.getUser.rank || 501 }} </h4>
 							</div>
 						</div>
@@ -26,6 +23,9 @@
 				<!-- LOGIN OLUN EKRANI -->
 				<h2>Lutfen Giris Yapiniz!</h2>
 			</div>
+		</div>
+		<div class="col-1 p-0 m-0 h-100 d-flex align-items-center justify-content-center" @click="shouldExpand">
+			<i class="fa-solid fa-chevron-up fa-rotate-90 fa-xl"></i>
 		</div>
 	</div>
 </template>

@@ -4,6 +4,13 @@
 			<div v-if="!shouldDisplay" @click="switchExpand" class="h-100 w-100 d-flex align-items-center justify-content-center">
 				<i class="fa-solid fa-user"></i>
 			</div>
+			<div v-else class="h-100 w-100">
+				<comps.US_profileBar :shouldExpand="switchExpand" class="showmyself w-100" />
+				<comps.US_loginSignup v-if="!store.getters.getUser.isLogin"/>
+				<div v-else>
+					<h1>Profile Settings</h1>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -19,9 +26,10 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import { useStore } from "vuex"
+import { useStore } from 'vuex'
 import { computed, ref, watch } from "vue";
-const store = useStore();
+import * as comps from "@/components/menu/menuComponents";
+const store = useStore()
 const shouldExpand = ref(false)
 const shouldExpandclass = computed(() => {
 	if (shouldExpand.value)

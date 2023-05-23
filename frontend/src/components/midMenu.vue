@@ -3,7 +3,7 @@
 		<div class="row h-100 w-100">
 			<userMenu class="col-4 p-0 m-0"/>
 			<mainMenu class="col-4 p-0 m-0"/>
-			<userList class="col-4 p-0 m-0"/>
+			<userList @OpenUser="deneme()" class="col-4 p-0 m-0"/>
 		</div>
 	</div>
 </template>
@@ -27,8 +27,11 @@ import { onUnmounted } from "vue"
 
 const store = useStore()
 
-onUnmounted(() => {
+const deneme = () => {
 	store.commit('_setloginstat', true)
 	store.commit('_setLogin', { profile: 'https://html.com/wp-content/uploads/flamingo.jpg'})
+}
+
+onUnmounted(() => {
 })
 </script>

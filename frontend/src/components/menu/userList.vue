@@ -6,8 +6,8 @@
 			</div>
 			<div v-else class="h-100 w-100">
 				<!-- todo loginMenu event will be changed -->
-				<profilebar @loginMenu="switchExpand" :shouldExpand="switchExpand" class="showmyself w-100" />
-				<friendlist class="showfriends rightborder" />
+				<comps.UL_profileBar @loginMenu="$emit('OpenUser'), switchExpand " :shouldExpand="switchExpand" class="showmyself w-100" />
+				<comps.UL_friendList class="showfriends rightborder" />
 			</div>
 		</div>
 	</div>
@@ -33,11 +33,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
-// @ts-ignore
-import { useStore } from "vuex";
-import friendlist from "./userlistComponents/friendList.vue"
-import profilebar from "./userlistComponents/profileBar.vue"
-const store = useStore();
+import * as comps from "@/components/menu/menuComponents";
 const shouldExpand = ref(false)
 const shouldExpandclass = computed(() => {
 	if (shouldExpand.value)
