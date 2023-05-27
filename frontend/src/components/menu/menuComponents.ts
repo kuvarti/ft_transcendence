@@ -1,6 +1,7 @@
 export {default as UserList} from "./userList.vue"
-export {default as UL_friendList} from "./userlistComponents/friendList.vue"
-export {default as UL_profileBar} from "./userlistComponents/profileBar.vue"
+export {default as UL_friendList} from "@/components/menu//userlistComponents/friendList.vue"
+export {default as UL_profileBar} from "@/components/menu//userlistComponents/profileBar.vue"
+export {default as UL_requestList} from "@/components/menu/userlistComponents/requestList.vue"
 
 
 export {default as UserSettings} from "./userSettings.vue"

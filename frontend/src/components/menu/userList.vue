@@ -6,8 +6,12 @@
 			</div>
 			<div v-else class="h-100 w-100">
 				<!-- todo loginMenu event will be changed -->
-				<comps.UL_profileBar @loginMenu="$emit('OpenUser'), switchExpand " :shouldExpand="switchExpand" class="showmyself w-100" />
-				<comps.UL_friendList class="showfriends rightborder" />
+				<comps.UL_profileBar class="showmyself w-100"
+					@loginMenu="$emit('OpenUser'), switchExpand"
+					@requestlist="switchList()"
+					:shouldExpand="switchExpand"/>
+				<comps.UL_friendList v-if="displaylist === 'Friend'" class="showfriends rightborder d-flex" />
+				<comps.UL_requestList v-else class="showfriends rightborder d-flex"/>
 			</div>
 		</div>
 	</div>
@@ -15,10 +19,10 @@
 
 <style>
 .showmyself{
-	height: 20% !important;
+	height: 15% !important;
 }
 .showfriends{
-	height: 80%;
+	height: 85%;
 }
 
 .rightmenu{
@@ -34,6 +38,8 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import * as comps from "@/components/menu/menuComponents";
+
+//* Expand configs
 const shouldExpand = ref(false)
 const shouldExpandclass = computed(() => {
 	if (shouldExpand.value)
@@ -45,6 +51,7 @@ const shouldDisplay = ref(false)
 watch(shouldExpand, () => {
 	if (shouldExpand.value) {
 		setTimeout(() => {
+			displaylist.value = 'Friend'
 			shouldDisplay.value = true
 		}, 500)
 	} else {
@@ -56,4 +63,15 @@ watch(shouldExpand, () => {
 const switchExpand = () => {
 	shouldExpand.value = !shouldExpand.value
 }
+
+//* requestlist configs
+const displaylist = ref('Friend')
+const switchList = () => {
+	if (displaylist.value === 'Friend')
+		displaylist.value = 'request'
+	else
+		displaylist.value = 'Friend'
+}
+
+
 </script>
