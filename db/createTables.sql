@@ -12,6 +12,7 @@ connect transcendence;
 -- 
 -- TABLES
 -- 
+drop table if exists blocklist;
 drop table if exists banlist;
 drop table if exists matches;
 drop table if exists friendlist;
@@ -60,11 +61,8 @@ drop function if exists uselist_combinations();
 create or replace function newmatch(p1 int, p2 int, p1_s int, p2_s int)
 	returns void
 as $$
-declare
-	mdate date := now()::date;
-	mtime time := now()::time;
 begin
-	insert into matches (match_date, match_time, player1, p1_score, player2, p2_score) values(mdate, mtime, p1, p1_s, p2, p2_s);
+	insert into matches (match_date, match_time, player1, p1_score, player2, p2_score) values(now()::date, now()::time, p1, p1_s, p2, p2_s);
 end;
 $$ language plpgsql ;
 
@@ -87,10 +85,10 @@ LANGUAGE plpgsql;
 -- 
 -- Triggers
 -- 
-drop trigger if exists block_duplicate_userlist_combinations on friendlist;
-drop trigger if exists block_duplicate_blocklist_combinations on friendlist;
+drop trigger if exists block_duplicate_frientlist_combinations on friendlist;
+drop trigger if exists block_duplicate_blocklist_combinations on blocklist;
 
-CREATE TRIGGER block_duplicate_userlist_combinations
+CREATE TRIGGER block_duplicate_frientlist_combinations
 BEFORE INSERT ON friendlist
 FOR EACH ROW
 EXECUTE FUNCTION userlist_combinations();
@@ -103,7 +101,6 @@ EXECUTE FUNCTION userlist_combinations();
 -- 
 -- Test Datas
 -- 
-
 -- /* Test datas!
 insert into users (username, rank, passwd) values
 	('kuvarti', 1000, 'hashedpasswd'),
@@ -123,8 +120,10 @@ select newmatch(2, 4, 2, 2);
 INSERT INTO friendlist (user1, user2) VALUES
 	(1, 2),
 	(2, 3);
-
 --insert into friendlist (user1, user2) values (3, 2);
+
+Insert into blocklist (user1, user2) values
+	(1, 3);
 
 select * from users;
 select * from matches;
