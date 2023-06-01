@@ -6,7 +6,7 @@
 			</div>
 			<div v-else class="h-100 w-100">
 				<!-- todo loginMenu event will be changed -->
-				<comps.UL_profileBar class="showmyself w-100"
+				<comps.UL_profileBar class="requestbar w-100"
 					@loginMenu="$emit('OpenUser'), switchExpand"
 					@requestlist="switchList()"
 					:shouldExpand="switchExpand"/>
@@ -18,7 +18,7 @@
 </template>
 
 <style>
-.showmyself{
+.requestbar{
 	height: 15% !important;
 }
 .showfriends{

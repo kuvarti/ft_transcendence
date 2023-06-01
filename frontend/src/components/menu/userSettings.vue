@@ -4,8 +4,8 @@
 			<div v-if="!shouldDisplay" @click="switchExpand" class="h-100 w-100 d-flex align-items-center justify-content-center">
 				<i class="fa-solid fa-user"></i>
 			</div>
-			<div v-else class="h-100 w-100">
-				<comps.US_profileBar :shouldExpand="switchExpand" class="showmyself w-100" />
+			<div v-else class="w-100" style="height: 20%;">
+				<comps.US_profileBar :shouldExpand="switchExpand" class="w-100" />
 				<comps.US_loginSignup v-if="!store.getters.getUser.isLogin"/>
 				<div v-else>
 					<h1>Profile Settings</h1>
